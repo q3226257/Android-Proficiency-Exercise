@@ -101,7 +101,7 @@ public class BaseDataFragment extends BaseFragment<DataEntity> implements BaseRe
                 if (viewHolder.mItem instanceof DataEntity.ResultsBean) {
                     data = (DataEntity.ResultsBean) viewHolder.mItem;
                     String url = data.getUrl();
-                    DetailActivity.newInstance(url,getContext());
+                    DetailActivity.newInstance(url, getContext());
                 }
             }
         });
@@ -109,7 +109,7 @@ public class BaseDataFragment extends BaseFragment<DataEntity> implements BaseRe
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_content_list);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext()
-                ,DividerItemDecoration.VERTICAL));
+                , DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(mContentAdapter);
         recyclerView.addOnScrollListener(new ScrollListener());
@@ -170,13 +170,13 @@ public class BaseDataFragment extends BaseFragment<DataEntity> implements BaseRe
         mContentAdapter.setFootItemText(getContext().getString(R.string.loadComplete));
 
 
-            List<Object> headerList = new ArrayList<>();
-            for (DataEntity.ResultsBean bean : modifiedData.getResults()) {
-                if (bean.getImages()!=null&&bean.getImages().size() > 0) {
-                    headerList.add(bean);
-                }
+        List<Object> headerList = new ArrayList<>();
+        for (DataEntity.ResultsBean bean : modifiedData.getResults()) {
+            if (bean.getImages() != null && bean.getImages().size() > 0) {
+                headerList.add(bean);
             }
-        mContentAdapter.setHeadItemValuse(0,headerList);
+        }
+        mContentAdapter.setHeadItemValuse(0, headerList);
 
         int nowSize = modifiedData.getResults().size();
         int addSize = modifyData.getResults().size();
@@ -197,7 +197,8 @@ public class BaseDataFragment extends BaseFragment<DataEntity> implements BaseRe
             int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
             int childCount = layoutManager.getChildCount();
             if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                if (firstVisibleItemPosition + childCount == layoutManager.getItemCount()) {
+                if (firstVisibleItemPosition + childCount == layoutManager.getItemCount()
+                        && layoutManager.getItemCount() > childCount) {
                     loaderMoreData();
                 }
             }

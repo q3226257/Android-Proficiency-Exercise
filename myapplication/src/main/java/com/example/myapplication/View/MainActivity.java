@@ -70,6 +70,8 @@ public class MainActivity extends BaseActivity implements IMainView<DataEntity>,
         //可以在适当的时候加载来和作为 viewPager 的tab
         ViewStub viewStub = (ViewStub) findViewById(R.id.vs_need_tab);
         mTlMainNavigation = (TabLayout) viewStub.inflate();
+        mTlMainNavigation.setTabGravity(TabLayout.GRAVITY_FILL);
+        mTlMainNavigation.setTabMode(TabLayout.MODE_FIXED);
         mTlMainNavigation.setupWithViewPager(mVpMainContent);
     }
 

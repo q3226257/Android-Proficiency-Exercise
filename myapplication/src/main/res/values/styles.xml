@@ -9,4 +9,12 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="CustomTab" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/indicator_normal</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+    </style>
+
 </resources>

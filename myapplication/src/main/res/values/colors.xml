@@ -8,5 +8,6 @@
     <color name="txt_black">@android:color/black</color>
     <color name="txt_gray">#FF6EB4</color>
 
-
+    <!--指示器颜色-->
+    <color name="indicator_normal">#FF0529DA</color>
 </resources>
