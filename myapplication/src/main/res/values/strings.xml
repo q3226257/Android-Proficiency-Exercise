@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Gank.io</string>
+    <string name="request_failed">请求失败</string>
+    <string name="action_search">搜索</string>
+    <string name="isLoading">正在加载</string>
+    <string name="loadComplete">加载完毕</string>
+    <string name="requestError">数据加载错误</string>
 </resources>

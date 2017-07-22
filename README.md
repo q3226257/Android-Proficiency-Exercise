@@ -32,7 +32,7 @@ Read the API documentation of [http://gank.io/api](http://gank.io/api) carefully
       ],
       "publishedAt": "2016-11-23T11:27:52.847Z",
       "source": "web",
-      "type": "Android",
+      "mType": "Android",
       "url": "https://realm.io/cn/news/360andev-jake-wharton-java-hidden-costs-android/",
       "used": true,
       "who": "Chen Mulong"
