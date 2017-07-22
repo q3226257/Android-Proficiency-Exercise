@@ -4,14 +4,15 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.View.DetailActivity;
 import com.example.myapplication.View.adapter.BaseAdapter;
 import com.example.myapplication.View.view_i.IBaseF2A;
 import com.example.myapplication.View.view_i.IMainView;
@@ -96,12 +97,19 @@ public class BaseDataFragment extends BaseFragment<DataEntity> implements BaseRe
         mContentAdapter = new BaseAdapter(mDataEntity.getResults(), new BaseRecyclerViewAdapter.IItemCLickListener() {
             @Override
             public void click(BaseRecyclerViewAdapter.BaseViewHolder viewHolder) {
-                Toast.makeText(getContext(), "提示：" + viewHolder.mItem.toString(), Toast.LENGTH_SHORT).show();
+                DataEntity.ResultsBean data;
+                if (viewHolder.mItem instanceof DataEntity.ResultsBean) {
+                    data = (DataEntity.ResultsBean) viewHolder.mItem;
+                    String url = data.getUrl();
+                    DetailActivity.newInstance(url,getContext());
+                }
             }
         });
         mContentAdapter.addHeadItem(new Object());
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_content_list);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext()
+                ,DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(mContentAdapter);
         recyclerView.addOnScrollListener(new ScrollListener());

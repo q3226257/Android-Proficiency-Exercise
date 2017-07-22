@@ -24,6 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     private AppBarLayout mAblMain;
     private Toolbar mTbMainBar;
     private IBasePresent mBasePresent;
+    private ViewGroup mContentContainerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +45,16 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     @Override
     public void setContentView(View view) {
         super.setContentView(R.layout.activity_base);
-        ((ViewGroup) findViewById(R.id.coordinatorLayout)).addView(view);
+        mContentContainerView = ((ViewGroup) findViewById(R.id.coordinatorLayout));
+        mContentContainerView.addView(view);
         initView();
     }
 
     @Override
     public void setContentView(View view, ViewGroup.LayoutParams params) {
         super.setContentView(R.layout.activity_base);
-        ((ViewGroup) findViewById(R.id.coordinatorLayout)).addView(view, params);
+        mContentContainerView = ((ViewGroup) findViewById(R.id.coordinatorLayout));
+        mContentContainerView.addView(view, params);
         initView();
     }
 
@@ -84,19 +87,25 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     @Override
     protected void onDestroy() {
-        mBasePresent.onDestroy();
+        if (mBasePresent != null) {
+            mBasePresent.onDestroy();
+        }
         super.onDestroy();
     }
 
     @Override
     protected void onPause() {
-        mBasePresent.onPause();
+        if (mBasePresent != null) {
+            mBasePresent.onPause();
+        }
         super.onPause();
     }
 
     @Override
     protected void onResume() {
-        mBasePresent.onResume();
+        if (mBasePresent != null) {
+            mBasePresent.onResume();
+        }
         super.onResume();
     }
 
