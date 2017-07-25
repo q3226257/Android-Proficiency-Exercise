@@ -1,4 +1,4 @@
-package com.example.myapplication.base.Constant;
+package com.example.myapplication.base.constant;
 
 /**
  * Created by cfadmin on 2017/7/18.
