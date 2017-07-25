@@ -1,4 +1,4 @@
-package com.example.myapplication.base.view;
+package com.example.myapplication.Base.view;
 
 import android.app.ActionBar;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.example.myapplication.view.view_i.IBaseView;
+import com.example.myapplication.View.view_i.IBaseView;
 import com.example.myapplication.present.present_i.IBasePresent;
 
 public abstract class BaseActivity extends AppCompatActivity implements IBaseView {

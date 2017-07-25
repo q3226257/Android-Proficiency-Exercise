@@ -1,4 +1,4 @@
-package com.example.myapplication.view.fragment;
+package com.example.myapplication.View.fragment;
 
 import android.content.res.Resources;
 import android.support.annotation.IdRes;

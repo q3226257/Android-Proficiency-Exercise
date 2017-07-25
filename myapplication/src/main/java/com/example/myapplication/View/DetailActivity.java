@@ -1,4 +1,4 @@
-package com.example.myapplication.view;
+package com.example.myapplication.View;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -17,7 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.example.myapplication.R;
-import com.example.myapplication.base.view.BaseActivity;
+import com.example.myapplication.Base.view.BaseActivity;
 import com.example.myapplication.present.present_i.IBasePresent;
 import com.example.myapplication.util.NetUtil;
 

@@ -1,7 +1,7 @@
 package com.example.myapplication.mode.http;
 
-import com.example.myapplication.base.BaseApplication;
-import com.example.myapplication.base.constant.AppUrls;
+import com.example.myapplication.Base.BaseApplication;
+import com.example.myapplication.Base.constant.AppUrls;
 import com.example.myapplication.mode.bean.DataEntity;
 import com.example.myapplication.mode.http.http_request_i.DataService;
 import com.example.myapplication.mode.http.http_request_i.IHttpCallBack;

@@ -1,8 +1,8 @@
-package com.example.myapplication.view.fragment;
+package com.example.myapplication.View.fragment;
 
 import android.support.v4.app.Fragment;
 
-import com.example.myapplication.view.view_i.IBaseA2F;
+import com.example.myapplication.View.view_i.IBaseA2F;
 
 /**
  * Created by cfadmin on 2017/7/20.

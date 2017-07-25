@@ -1,4 +1,4 @@
-package com.example.myapplication.view.view_i;
+package com.example.myapplication.View.view_i;
 
 
 /**

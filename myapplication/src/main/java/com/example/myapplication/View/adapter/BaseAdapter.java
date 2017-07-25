@@ -1,4 +1,4 @@
-package com.example.myapplication.view.adapter;
+package com.example.myapplication.View.adapter;
 
 import android.support.annotation.IntDef;
 import android.support.v4.view.PagerAdapter;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.view.fragment.BaseRecyclerViewAdapter;
+import com.example.myapplication.View.fragment.BaseRecyclerViewAdapter;
 import com.example.myapplication.mode.bean.DataEntity;
 import com.example.myapplication.util.ImgHelper;
 import com.example.myapplication.util.TimeUtil;

@@ -1,8 +1,8 @@
 package com.example.myapplication.present;
 
 
-import com.example.myapplication.view.MainActivity;
-import com.example.myapplication.view.view_i.IMainView;
+import com.example.myapplication.View.MainActivity;
+import com.example.myapplication.View.view_i.IMainView;
 import com.example.myapplication.mode.bean.DataEntity;
 import com.example.myapplication.mode.data.RequestData;
 import com.example.myapplication.present.present_i.IMainPresent;

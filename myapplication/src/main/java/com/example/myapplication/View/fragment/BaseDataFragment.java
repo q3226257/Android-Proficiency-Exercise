@@ -1,4 +1,4 @@
-package com.example.myapplication.view.fragment;
+package com.example.myapplication.View.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myapplication.R;
-import com.example.myapplication.view.DetailActivity;
-import com.example.myapplication.view.adapter.BaseAdapter;
-import com.example.myapplication.view.view_i.IBaseF2A;
-import com.example.myapplication.view.view_i.IMainView;
+import com.example.myapplication.View.DetailActivity;
+import com.example.myapplication.View.adapter.BaseAdapter;
+import com.example.myapplication.View.view_i.IBaseF2A;
+import com.example.myapplication.View.view_i.IMainView;
 import com.example.myapplication.mode.bean.DataEntity;
 import com.example.myapplication.present.present_i.IMainPresent;
 
