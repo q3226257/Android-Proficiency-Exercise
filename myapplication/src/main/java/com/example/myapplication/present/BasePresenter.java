@@ -1,6 +1,6 @@
 package com.example.myapplication.present;
 
-import com.example.myapplication.View.view_i.IBaseView;
+import com.example.myapplication.view.view_i.IBaseView;
 import com.example.myapplication.mode.http.HttpHelper;
 import com.example.myapplication.present.present_i.IBasePresent;
 
