@@ -41,7 +41,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
         if (h == null) return;
         if (!mHeaderValues.contains(h)) {
             mHeaderValues.add(h);
-            notifyItemInserted(mHeaderValues.size()-1);
+            notifyItemInserted(mHeaderValues.size() - 1);
         }
     }
 
@@ -49,7 +49,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
         if (b == null) return;
         if (!mFootValues.contains(b)) {
             mFootValues.add(b);
-            notifyItemInserted(getItemCount()-mFootValues.size());
+            notifyItemInserted(getItemCount() - mFootValues.size());
         }
     }
 
@@ -66,7 +66,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
         int footSize = mFootValues.size();
         int bodySize = mBodyValues.size();
 
-        switch (getViewType(position)){
+        switch (getViewType(position)) {
             case EMPTY:
                 holder.mItem = mEmptyViewData;
                 break;
@@ -74,7 +74,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
                 holder.mItem = mHeaderValues.get(position);
                 break;
             case FOOT:
-                holder.mItem = mFootValues.get(position - headSize - bodySize);
+                holder.mItem = mFootValues.get(position - headSize - getFootTopSize(bodySize));
                 break;
             case BODY:
                 holder.mItem = mBodyValues.get(position - headSize);
@@ -91,13 +91,14 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
         });
         onBindView(holder, position);
     }
+
     @Override
     public int getItemCount() {
-        int count = mBodyValues.size() + mHeaderValues.size() + mFootValues.size();
+        int count = mBodyValues.size();
         if (count == 0 && mEmptyViewData != null) {
-            return 1;
+            return 1 + mHeaderValues.size() + mFootValues.size();
         }
-        return count;
+        return count + mHeaderValues.size() + mFootValues.size();
     }
 
     @Override
@@ -117,7 +118,8 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
                 break;
             case FOOT:
                 //foot 类型
-                int size = position - headSize - bodySize;
+                int topSize = getFootTopSize(bodySize);
+                int size = position - headSize - topSize;
                 viewType = getFootItemViewType(size, mFootValues.get(size));
                 break;
             case BODY:
@@ -129,14 +131,18 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
         return viewType;
     }
 
-    private @VIEW_TYPE int
-    getViewType(int position) {
+    //获取foot 上的 bodySize 或者 emptyViewSize
+    private int getFootTopSize(int bodySize) {
+        return bodySize == 0 ? (mEmptyViewData == null ? 0 : 1) : bodySize;
+    }
+
+    private int getViewType(int position) {
         int headSize = mHeaderValues.size();
         int footSize = mFootValues.size();
         int bodySize = mBodyValues.size();
         int count = headSize + footSize + bodySize;
 
-        if (count == 0 && getItemCount() == 1 && mEmptyViewData != null) {
+        if (bodySize == 0 && position == headSize && mEmptyViewData != null) {
             return EMPTY;
         } else if (position < headSize) {
             //header 类型
@@ -144,11 +150,14 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
         } else if (position >= headSize && position < bodySize + headSize) {
             //body 类型
             return BODY;
-        } else if (position >= headSize + bodySize && position < headSize + footSize + bodySize) {
-            //foot 类型
-            return FOOT;
+        } else {
+            int topSize = getFootTopSize(bodySize);
+            if (position >= headSize + topSize && position < headSize + footSize + topSize) {
+                //foot 类型
+                return FOOT;
+            }
         }
-        return BODY;
+        return -1;
     }
 
     @Override
@@ -156,10 +165,11 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
         return position;
     }
 
-    public int getHeaderSize(){
+    public int getHeaderSize() {
         return mHeaderValues.size();
     }
-    public void getFootSize(){
+
+    public void getFootSize() {
         mFootValues.size();
     }
 
