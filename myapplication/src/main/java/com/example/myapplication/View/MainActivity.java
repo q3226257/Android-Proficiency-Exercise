@@ -1,4 +1,4 @@
-package com.example.myapplication.View;
+package com.example.myapplication.view;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -10,11 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.view.ViewStub;
 
 import com.example.myapplication.R;
-import com.example.myapplication.View.fragment.BaseDataFragment;
-import com.example.myapplication.View.fragment.BaseFragment;
-import com.example.myapplication.View.view_i.IBaseA2F;
-import com.example.myapplication.View.view_i.IBaseF2A;
-import com.example.myapplication.View.view_i.IMainView;
+import com.example.myapplication.view.fragment.BaseDataFragment;
+import com.example.myapplication.view.fragment.BaseFragment;
+import com.example.myapplication.view.view_i.IBaseA2F;
+import com.example.myapplication.view.view_i.IBaseF2A;
+import com.example.myapplication.view.view_i.IMainView;
 import com.example.myapplication.base.view.BaseActivity;
 import com.example.myapplication.mode.bean.DataEntity;
 import com.example.myapplication.present.MainPresent;
@@ -23,6 +23,8 @@ import com.example.myapplication.present.present_i.IMainPresent;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class MainActivity extends BaseActivity implements IMainView<DataEntity>, IBaseF2A {
 
