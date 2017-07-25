@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".View.DetailActivity">
+    tools:context=".view.DetailActivity">
 
     <WebView
         android:id="@+id/wb_detail_"
