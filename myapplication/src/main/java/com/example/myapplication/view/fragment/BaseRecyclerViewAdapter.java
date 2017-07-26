@@ -57,7 +57,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(getItemLayoutId(viewType), parent, false);
-        return new BaseViewHolder(viewType, view);
+        return new BaseViewHolder(viewType, view,mListener);
     }
 
     @Override
@@ -157,7 +157,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
                 return FOOT;
             }
         }
-        return -1;
+        return BODY;
     }
 
     @Override
@@ -202,9 +202,16 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
         public int mViewType;
         private Map<Integer, View> views = new HashMap<>();
 
-        public BaseViewHolder(int viewType, View itemView) {
+        public BaseViewHolder(int viewType, View itemView,final IItemCLickListener listener) {
             super(itemView);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener !=null) {
+                       listener.click(BaseViewHolder.this);
+                    }
+                }
+            });
             this.mViewType = viewType;
         }
 
